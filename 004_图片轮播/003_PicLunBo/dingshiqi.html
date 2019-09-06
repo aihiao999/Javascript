@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script>
+			<!-- 定时器 -->
+			var timerId;
+			function doadd(){
+				var mydiv = document.getElementById("mydiv");
+				// Number()字符串类型转换为数值类型
+				mydiv.innerText = Number(mydiv.innerText) + 1;
+			}
+			function startDingShiQi(){
+				// window对象是一个顶层对象
+				// window.setInterval(): 每隔多少毫秒执行一次函数
+				timerId = window.setInterval("doadd()", 1000);
+			}
+			function stopDingShiQi(){
+				// window.clearInterval(): 方法停止
+				window.clearInterval(timerId);
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="开启定时器" onclick="startDingShiQi() " /><br />
+		<input type="button" value="停止定时器" onclick="stopDingShiQi()" /> <br />
+		<div id = "mydiv">1</div>
+	</body>
+</html>

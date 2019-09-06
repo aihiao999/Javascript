@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			var index = 1;
+			
+			function changeImg(){
+				var myimg = document.getElementById("myimg");
+				// 计算出当前要切换到第几张图片
+				var curIndex = index % 3 + 1;  // 0,1,2 
+				myimg.src = "img/"+curIndex+".jpg";  // 1,2,3
+				// 每切换完, 索引加1
+				index = index + 1;
+			}
+			
+			function init(){
+				window.setInterval("changeImg()", 3000);
+			}
+		</script>
+	</head>
+	<!-- 文档加载完成的事件 onload -->
+	<body onload="init()">
+		<img id="myimg" src="img/1.jpg" width="100%"/>
+	</body>
+</html>
