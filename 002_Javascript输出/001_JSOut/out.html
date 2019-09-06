@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			//1. 向页面输出内容
+			document.write("向页面输出内容");
+			//2. 向控制台输出
+			console.log("向控制台输出");
+			function dianwo(){
+				//3. 弹框
+				alert("我是一个弹框");
+				// 通过id获取页面元素
+				var mydiv = document.getElementById("mydiv");
+				// 4.向页面输出Html内容
+				mydiv.innerHTML = "<font color='red'>内容被替换掉了</font>";
+				
+				var hediv = document.getElementById("hediv");
+				// 5.向页面输出文本内容
+				hediv.innerText = "<font color='red'>内容被替换掉了</font>";
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="点我,修改DIV中的内容" onclick="dianwo()" />
+				
+		<div id="mydiv">
+			这里的内容一会要被替换掉	
+		</div>
+		<div id="hediv">
+			这里的内容一会要被替换掉	
+		</div>
+	</body>
+</html>
