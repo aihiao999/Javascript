@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--
+			1.确定事件: 提交事件 onsubmit
+			2.事件要触发函数 checkForm()
+			3.校验用户名, 长度不能小于6位
+		-->
+		<script>
+			function checkForm(){
+				// 用户名校验
+				var username = document.getElementById("username");
+				if(username.value.length >= 6){
+					
+				}else{
+					alert("对不起,用户名太短啦!")
+					return false;
+				}
+				
+				// 邮箱校验
+				var email = document.getElementById("email")
+				if(/^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/.test(email.value)){
+
+				}else{
+					alert("邮箱校验失败")
+					return false;
+				}
+				
+				return true;;
+			}
+		</script>
+	</head>
+	<body>
+		<form action="success.html" onsubmit="return checkForm()" >
+			用户名:<input type="text" id="username" /><br />
+			邮箱:<input type="text" id="email" /><br />			
+			<input type="submit" value="提交" />
+		</form>
+	</body>
+</html>
