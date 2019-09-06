@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script>
+			function clickme(){
+				var mydiv = document.getElementById("mydiv");
+				// 1.创建元素节点
+				var p = document.createElement("p"); // <p></p>
+				// 2.创建文本节点
+				var text = document.createTextNode("动态创建的文本");
+				// 3.将p和文本内容关联起来
+				p.appendChild(text);
+				// 4.将P添加到目标div中
+				mydiv.appendChild(p);
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="动态创建文本" onclick="clickme()" />
+		<div id="mydiv"></div>
+	</body>
+</html>

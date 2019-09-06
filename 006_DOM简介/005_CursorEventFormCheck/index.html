@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!--
+			onfocus事件: 获得焦点事件
+			onblur: 失去焦点
+			onkeyup: 按键抬起事件
+		-->
+		<script>
+			function showTips(id, msg){
+				var id = document.getElementById(id);
+				id.innerHTML = msg;
+			}
+			function checkUsername(){
+				var username = document.getElementById("username").value;
+				var span_username = document.getElementById("span_username");
+				if(username.length < 6){
+					span_username.innerHTML = "<font color='red' size='2'>对不起,太短</font>";
+					return false;
+				}else{
+					span_username.innerHTML = "<font color='red' size='2'>恭喜您,可用</font>";
+					return true;
+				}
+			}
+			function checkPassword(){
+				var password = document.getElementById("password").value;
+				var span_password = document.getElementById("span_password");
+				if(password.length < 6){
+					span_password.innerHTML = "<font color='red' size='2'>对不起,太短</font>";
+					return false;
+				}else{
+					span_password.innerHTML = "<font color='red' size='2'>恭喜您,够用</font>";
+					return true;
+				}
+			}
+			function checkForm(){
+				return checkUsername() && checkPassword();
+			}
+		</script>
+	</head>
+	<body>
+		<form action="" method="get" onsubmit="return checkForm()">
+			用户名:<input type="text" id="username" onfocus="showTips('span_username', '用户名长度不能小于6')" onblur="checkUsername()" onkeyup="checkUsername()" /><span id="span_username"></span><br />
+			密码:<input type="password" id="password" onfocus="showTips('span_password', '密码长度不能小于6')" onblur="checkPassword()" onkeyup="checkPassword()" /><span id="span_password"></span><br />
+			<input type="submit" value="提交" />
+		</form>
+	</body>
+</html>
